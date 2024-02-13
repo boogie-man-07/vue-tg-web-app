@@ -1,0 +1,75 @@
+@import './base.css';
+
+.el-container {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+#app {
+  background-color: #f3f5f7;
+}
+
+.el-main {
+  height: 100vh;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.search-card {
+  width: 100%;
+  border-radius: 8px;
+  color: black;
+  margin: 8px 0px;
+}
+
+.card-padding {
+  padding: 8px;
+}
+
+.custom-input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  border-width: 1px;
+}
+
+.item-card {
+  border-radius: 8px;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.request-item {
+  background-color: white;
+  height: 100px;
+  padding: 8px;
+  margin: 8px 0px;
+  border-radius: 8px;
+}
+
+.flexible {
+  display: flex;
+}
+
+.title-text {
+  font-size: 1.2rem;
+  color: black;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 4px 0px 4px 0px;
+}
+
+.subtitle-text {
+  font-size: 0.7rem;
+  color: darkgray;
+  font-weight: 400;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0px 4px 0px 4px;
+}
+
+.el-pagination .el-select .el-input {
+  width: 100%;
+}
