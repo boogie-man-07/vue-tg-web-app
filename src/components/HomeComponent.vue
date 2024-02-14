@@ -45,15 +45,9 @@ export default {
             if (this.isAnySelected) {
                 this.$emit('change-tg-button-state', true)
             } else {
-                this.$emit('change-tg-button-state', true)
+                this.$emit('change-tg-button-state', false)
             }
         },
-    },
-    mounted() {
-        const tg = window.Telegram.WebApp
-        tg.MainButton.setParams({
-            text: 'Отправить данные'
-        })
     },
     methods: {
         selectItem(id) {

@@ -14,6 +14,10 @@ export default {
   mounted() {
     const tg = window.Telegram.WebApp
     tg.expand()
+
+    tg.MainButton.setParams({
+        text: 'Получить карточку'
+    })
   },
   methods: {
     changeTgButtonState(state) {
