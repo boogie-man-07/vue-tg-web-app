@@ -9,16 +9,15 @@ export default {
     HomeComponent
   },
   data() {
-    return {
-      tg: {}
-    }
+    return {}
   },
   mounted() {
-    tg = window.Telegram.WebApp
+    const tg = window.Telegram.WebApp
     tg.expand()
   },
   methods: {
     changeTgButtonState(state) {
+      const tg = window.Telegram.WebApp
       if (state) {
         tg.MainButton.show()
       } else {
