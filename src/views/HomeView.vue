@@ -10,18 +10,28 @@ export default {
   },
   data() {
     return {
+      tg: null
     }
   },
   mounted() {
-    const tg = window.Telegram.WebApp
+    tg = window.Telegram.WebApp
     tg.expand()
-  }
+  },
+  methods: {
+    changeTgButtonState(state) {
+      if (state) {
+        tg.MainButton.show()
+      } else {
+        tg.MainButton.hide()
+      }
+    }
+  },
 }
 
 </script>
 
 <template>
   <main>
-    <HomeComponent />
+    <HomeComponent @change-tg-button-state="changeTgButtonState" />
   </main>
 </template>

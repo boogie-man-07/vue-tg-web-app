@@ -29,6 +29,7 @@ export default {
     components: {
         EmployeeItemComponent
     },
+    emits: ['change-tg-button-state'],
     data() {
         return {
             filteredValue: '',
@@ -42,9 +43,9 @@ export default {
     watch: {
         isAnySelected() {
             if (this.isAnySelected) {
-                tg.MainButton.show()
+                this.$emit('change-tg-button-state', true)
             } else {
-                tg.MainButton.hide()
+                this.$emit('change-tg-button-state', true)
             }
         },
     },
