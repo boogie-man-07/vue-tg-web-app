@@ -2,42 +2,32 @@
 import HomeComponent from '../components/HomeComponent.vue'
 
 
+
 export default {
   name: "HomeView",
   components: {
     HomeComponent
   },
   data() {
-    return {
-      tg: null
-    }
+    return {}
   },
   mounted() {
-    tg = window.Telegram.WebApp
-    tg.ready()
+    const tg = window.Telegram.WebApp
     tg.expand()
 
     tg.MainButton.setParams({
         text: 'Получить карточку'
     })
-
-    tg.onEvent('mainButtonClicked', closeWindow)
-  },
-  beforeUnmount() {
-    tg.offEvent('mainButtonClicked', closeWindow)
   },
   methods: {
     changeTgButtonState(state) {
+      const tg = window.Telegram.WebApp
       if (state) {
         tg.MainButton.show()
       } else {
         tg.MainButton.hide()
       }
-    },
-    closeTgWindow() {
-      console.log('clicked')
-      tg.close()
-    },
+    }
   },
 }
 
