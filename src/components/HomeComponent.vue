@@ -1,7 +1,7 @@
 <template>
     <el-row class="search-card">
         <el-col>
-            <el-input class="custom-input" v-model="filteredValue" type="text" placeholder="Поиск работника" clearable />
+            <el-input class="custom-input" v-model="filteredValue" type="text" placeholder="Поиск работника" @clear="clearInput" clearable />
         </el-col>
     </el-row>
     <template v-if="employeesList.length > 0  && filteredValue != ''">
@@ -12,6 +12,11 @@
         </el-row>
     </template>
     <template v-if="filteredValue == ''">
+        <el-row>
+            <el-col class="flex-centered">
+            <img class="bot-gif" src="/bot-gif.gif" height="200" width="300" alt="logo" />
+            </el-col>
+        </el-row>
         <el-row class="empty-card">
             <el-col>
                 <el-text class="empty-card-text"><h2>Введите ФИО работника для поиска</h2></el-text>
@@ -53,6 +58,11 @@ export default {
         selectItem(id) {
             this.employees.forEach(el => {
                 el.id == id ? el.isSelected = !el.isSelected : el.isSelected = false
+            });
+        },
+        clearInput() {
+            this.employees.forEach(el => {
+                el.isSelected = false
             });
         },
     },

@@ -18,6 +18,8 @@ export default {
     tg.MainButton.setParams({
         text: 'Получить карточку'
     })
+
+    tg.onEvent('mainButtonClicked', closeTgWindow)
   },
   methods: {
     changeTgButtonState(state) {
@@ -27,7 +29,11 @@ export default {
       } else {
         tg.MainButton.hide()
       }
-    }
+    },
+    closeTgWindow() {
+      const tg = window.Telegram.WebApp
+      tg.close()
+    },
   },
 }
 
