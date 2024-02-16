@@ -13,24 +13,24 @@ export default {
     return {}
   },
   mounted() {
-    tg.ready()
-    tg.onEvent('mainButtonClicked', closeTgWindow)
-    tg.expand()
+    this.tg.ready()
+    this.tg.expand()
 
-    tg.MainButton.setParams({
+    this.tg.MainButton.setParams({
         text: 'Получить карточку'
     })
+
+    this.tg.onEvent('mainButtonClicked', closeTgWindow)
   },
   beforeUnmount() {
-    tg.offEvent('mainButtonClicked', closeTgWindow)
+    this.tg.offEvent('mainButtonClicked', closeTgWindow)
   },
   methods: {
     changeTgButtonState(state) {
       if (state) {
-        tg.MainButton.show()
+        this.tg.MainButton.show()
       } else {
-        tg.MainButton.hide()
-        tg.close()
+        this.tg.MainButton.hide()
       }
     },
     closeTgWindow() {
@@ -39,7 +39,7 @@ export default {
         message: 'Кнопка не закрыла окно',
         showClose: true
       })
-      tg.close()
+      this.tg.close()
     },
   },
 }
