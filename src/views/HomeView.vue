@@ -1,7 +1,5 @@
 <script>
 import HomeComponent from '../components/HomeComponent.vue'
-import { ElNotification } from 'element-plus'
-import { tg } from '../useTelegram.js'
 
 
 export default {
@@ -10,9 +8,12 @@ export default {
     HomeComponent
   },
   data() {
-    return {}
+    return {
+      tg: null
+    }
   },
   mounted() {
+    tg = window.Telegram.WebApp
     tg.ready()
     tg.expand()
 
