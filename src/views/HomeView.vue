@@ -30,6 +30,7 @@ export default {
         tg.MainButton.show()
       } else {
         tg.MainButton.hide()
+        tg.close()
       }
     },
     closeTgWindow() {
