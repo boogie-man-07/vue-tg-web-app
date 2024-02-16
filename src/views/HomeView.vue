@@ -1,7 +1,7 @@
 <script>
 import HomeComponent from '../components/HomeComponent.vue'
 import { ElNotification } from 'element-plus'
-import { tg } from '../useTelegram'
+import { tg } from '../useTelegram.js'
 
 
 export default {
