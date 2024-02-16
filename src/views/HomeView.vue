@@ -1,6 +1,6 @@
 <script>
 import HomeComponent from '../components/HomeComponent.vue'
-
+const tg = window.Telegram.WebApp
 
 
 export default {
@@ -12,26 +12,26 @@ export default {
     return {}
   },
   mounted() {
-    const tg = window.Telegram.WebApp
     tg.expand()
 
     tg.MainButton.setParams({
         text: 'Получить карточку'
     })
-
-    tg.onEvent('mainButtonClicked', closeTgWindow)
+  },
+  beforeUnmount() {
+    tg.offEvent('mainButtonClicked', closeTgWindow)
   },
   methods: {
     changeTgButtonState(state) {
-      const tg = window.Telegram.WebApp
       if (state) {
         tg.MainButton.show()
+        tg.onEvent('mainButtonClicked', closeTgWindow)
       } else {
         tg.MainButton.hide()
+        tg.offEvent('mainButtonClicked', closeTgWindow)
       }
     },
     closeTgWindow() {
-      const tg = window.Telegram.WebApp
       tg.close()
     },
   },
