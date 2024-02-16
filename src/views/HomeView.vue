@@ -1,7 +1,7 @@
 <script>
 import HomeComponent from '../components/HomeComponent.vue'
 import { ElNotification } from 'element-plus'
-import { tg, onClose } from '../useTelegram'
+import { tg } from '../useTelegram'
 
 
 export default {
@@ -34,8 +34,8 @@ export default {
       }
     },
     closeTgWindow() {
-      cobsole.log('clicked')
-      onClose()
+      console.log('clicked')
+      tg.close()
     },
   },
 }
