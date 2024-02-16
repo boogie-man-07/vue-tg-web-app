@@ -1,5 +1,6 @@
 <script>
 import HomeComponent from '../components/HomeComponent.vue'
+import { ElNotification } from 'element-plus'
 const tg = window.Telegram.WebApp
 
 
@@ -12,6 +13,8 @@ export default {
     return {}
   },
   mounted() {
+    tg.ready()
+    tg.onEvent('mainButtonClicked', closeTgWindow)
     tg.expand()
 
     tg.MainButton.setParams({
@@ -25,13 +28,16 @@ export default {
     changeTgButtonState(state) {
       if (state) {
         tg.MainButton.show()
-        tg.onEvent('mainButtonClicked', closeTgWindow)
       } else {
         tg.MainButton.hide()
-        tg.offEvent('mainButtonClicked', closeTgWindow)
       }
     },
     closeTgWindow() {
+      ElNotification.warning({
+        title: 'Внимание',
+        message: 'Кнопка не закрыла окно',
+        showClose: true
+      })
       tg.close()
     },
   },
