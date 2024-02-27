@@ -73,6 +73,8 @@ export default {
         send() {
             SendService.sendCard().then((response) => {
                 console.log(response.data)
+                const tg = window.Telegram.WebApp
+                tg.close()
             })
         },
     },
