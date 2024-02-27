@@ -28,7 +28,6 @@
 
 <script>
 import EmployeeItemComponent from "@/components/EmployeeItemComponent.vue"
-import SendService from '../services/send.service'
 
 export default {
     "name": "HomeComponent",
@@ -55,10 +54,6 @@ export default {
             }
         },
     },
-    mounted() {
-        const tg = window.Telegram.WebApp
-        tg.MainButton.onClick(send)
-    },
     methods: {
         selectItem(id) {
             this.employees.forEach(el => {
@@ -69,13 +64,6 @@ export default {
             this.employees.forEach(el => {
                 el.isSelected = false
             });
-        },
-        send() {
-            SendService.sendCard().then((response) => {
-                console.log(response.data)
-                const tg = window.Telegram.WebApp
-                tg.close()
-            })
         },
     },
     computed: {

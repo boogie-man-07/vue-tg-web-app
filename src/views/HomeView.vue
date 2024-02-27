@@ -1,5 +1,6 @@
 <script>
 import HomeComponent from '../components/HomeComponent.vue'
+import SendService from '../services/send.service'
 
 export default {
   name: "HomeView",
@@ -11,11 +12,14 @@ export default {
   },
   mounted() {
     const tg = window.Telegram.WebApp
-    tg.expand()
+    
 
     tg.MainButton.setParams({
         text: 'Получить карточку'
     })
+    tg.MainButton.onClick(this.send)
+
+    tg.expand()
   },
   methods: {
     changeTgButtonState(state) {
@@ -25,6 +29,11 @@ export default {
       } else {
         tg.MainButton.hide()
       }
+    },
+    send() {
+      SendService.sendCard()
+      const tg = window.Telegram.WebApp
+      tg.close()
     },
   },
 }
