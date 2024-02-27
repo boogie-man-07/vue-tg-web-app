@@ -1,8 +1,6 @@
 <script>
 import HomeComponent from '../components/HomeComponent.vue'
 
-
-
 export default {
   name: "HomeView",
   components: {
@@ -27,7 +25,7 @@ export default {
       } else {
         tg.MainButton.hide()
       }
-    }
+    },
   },
 }
 
