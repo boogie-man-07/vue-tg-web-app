@@ -41,7 +41,14 @@ export default {
             employees: [
                 { id: 1, fullname: 'Адыгезалов Мурад Арифович', position: 'руководитель проектов', isSelected: false },
                 { id: 2, fullname: 'Иванов Дмитрий Сергеевич', position: 'рукодводитель группы развития', isSelected: false },
-                { id: 3, fullname: 'Мальцев Сергей Владимирович', position: 'руководитель ИТ департамента', isSelected: false },
+                { id: 3, fullname: 'Сергеева Анна Владимировна', position: 'электромонтер', isSelected: false },
+                { id: 4, fullname: 'Шмелева Нина Алексеевна', position: 'главный бухгалтер', isSelected: false },
+                { id: 5, fullname: 'Черных Владимир Дмитриевич', position: 'главный инженер', isSelected: false },
+                { id: 6, fullname: 'Тихонов Марк Михайлович', position: 'администратор проектов', isSelected: false },
+                { id: 7, fullname: 'Смирнова Дарья Егоровна', position: 'системный аналитик', isSelected: false },
+                { id: 8, fullname: 'Родионова Мария Давидовна', position: 'директор по развитию', isSelected: false },
+                { id: 9, fullname: 'Митрофанова Софья Романовна', position: 'руководитель розницы', isSelected: false },
+                { id: 10, fullname: 'Григорьев Константин Александрович', position: 'специалист поддержки', isSelected: false }
             ],
         }
     },
@@ -71,9 +78,9 @@ export default {
     computed: {
         employeesList() {
             return this.employees.filter(el =>
-                    !this.filteredValue ||
-                    el.fullname.toLowerCase().includes(this.filteredValue.toLowerCase()
-                )
+                !this.filteredValue ||
+                el.fullname.toLowerCase().includes(this.filteredValue.toLowerCase()) ||
+                el.position.toLowerCase().includes(this.filteredValue.toLowerCase())
             )
         },
         isAnySelected() {
