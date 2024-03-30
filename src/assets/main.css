@@ -43,8 +43,7 @@
 
 .employee-box-with-padding {
   width: 100%;
-  padding-bottom: 50%;
-  margin-bottom: 50%;
+  padding-bottom: 200px;
 }
 
 .el-input {
