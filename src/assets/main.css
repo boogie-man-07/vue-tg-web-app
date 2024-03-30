@@ -37,6 +37,15 @@
   --el-input-placeholder-color: darkgray;
 }
 
+.employee-box {
+  width: 100%;
+}
+
+.employee-box-with-padding {
+  width: 100%;
+  padding-bottom: 30%;
+}
+
 .el-input {
   --el-input-text-color: black;
   --el-input-hover-border: var(--el-border-color-hover);

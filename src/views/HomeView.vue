@@ -6,7 +6,7 @@
 
 <script>
 import HomeComponent from '../components/HomeComponent.vue'
-import SendService from '../services/send.service'
+// import SendService from '../services/send.service'
 
 export default {
   name: "HomeView",

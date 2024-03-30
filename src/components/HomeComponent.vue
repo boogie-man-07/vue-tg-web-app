@@ -1,11 +1,20 @@
 <template>
     <el-row class="search-card">
         <el-col>
-            <el-input class="custom-input" v-model="filteredValue" type="text" placeholder="Поиск работника" @clear="clearInput" clearable />
+            <el-input
+                class="custom-input"
+                @focus="focused = true"
+                @blur="focused = false"
+                v-model="filteredValue"
+                type="text"
+                placeholder="Поиск работника"
+                @clear="clearInput"
+                clearable
+            />
         </el-col>
     </el-row>
     <template v-if="employeesList.length > 0  && filteredValue != ''">
-        <el-row>
+        <el-row :class="focused ? 'employee-box-with-padding' : 'employee-box'">
             <template v-for="employee in employeesList" :key="employee.id">
                 <employee-item-component :employee="employee" @select-item="selectItem" />
             </template>
@@ -38,6 +47,7 @@ export default {
     data() {
         return {
             filteredValue: '',
+            focused: false,
             employees: [
                 { id: 1, fullname: 'Адыгезалов Мурад Арифович', position: 'руководитель проектов', isSelected: false },
                 { id: 2, fullname: 'Иванов Дмитрий Сергеевич', position: 'рукодводитель группы развития', isSelected: false },
