@@ -21,6 +21,7 @@ export default {
   },
   mounted() {
     const tg = window.Telegram.WebApp
+    this.chatData = tg
 
     tg.MainButton.setParams({
         text: 'Получить карточку'
@@ -28,7 +29,6 @@ export default {
     tg.MainButton.onClick(this.send)
 
     tg.expand()
-    this.chatData = tg.initData
   },
   methods: {
     changeTgButtonState(state) {
