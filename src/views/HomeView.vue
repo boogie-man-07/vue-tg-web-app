@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      chatId: null,
+      chatId: 0,
       selectedItemId: 0
     }
   },
@@ -43,7 +43,7 @@ export default {
       this.selectedItemId = id
     },
     send() {
-      SendService.sendCard(this.chatId, this.selectedItemid)
+      SendService.sendCard(this.chatId, this.selectedItemId)
       const tg = window.Telegram.WebApp
       tg.close()
     },
