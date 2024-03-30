@@ -1,3 +1,9 @@
+<template>
+  <main>
+    <HomeComponent @change-tg-button-state="changeTgButtonState" @set-selected-item-id="setSelectedItemId" />
+  </main>
+</template>
+
 <script>
 import HomeComponent from '../components/HomeComponent.vue'
 import SendService from '../services/send.service'
@@ -8,7 +14,9 @@ export default {
     HomeComponent
   },
   data() {
-    return {}
+    return {
+      selectedItemId: 0
+    }
   },
   mounted() {
     const tg = window.Telegram.WebApp
@@ -30,8 +38,11 @@ export default {
         tg.MainButton.hide()
       }
     },
+    setSelectedItemId(id) {
+      this.selectedItemid = id
+    },
     send() {
-      SendService.sendCard()
+      SendService.sendCard(this.selectedItemid)
       const tg = window.Telegram.WebApp
       tg.close()
     },
@@ -39,9 +50,3 @@ export default {
 }
 
 </script>
-
-<template>
-  <main>
-    <HomeComponent @change-tg-button-state="changeTgButtonState" />
-  </main>
-</template>

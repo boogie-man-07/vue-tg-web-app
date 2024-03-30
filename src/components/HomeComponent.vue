@@ -34,7 +34,7 @@ export default {
     components: {
         EmployeeItemComponent
     },
-    emits: ['change-tg-button-state'],
+    emits: ['change-tg-button-state', 'set-selected-item-id'],
     data() {
         return {
             filteredValue: '',
@@ -59,6 +59,8 @@ export default {
             this.employees.forEach(el => {
                 el.id == id ? el.isSelected = !el.isSelected : el.isSelected = false
             });
+            const currentItem = this.employees.filter(el => el.isSelected)
+            this.$emit('set-selected-item', currentItem[0].id)
         },
         clearInput() {
             this.employees.forEach(el => {
