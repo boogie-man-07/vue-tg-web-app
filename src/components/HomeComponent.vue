@@ -60,7 +60,7 @@ export default {
                 el.id == id ? el.isSelected = !el.isSelected : el.isSelected = false
             });
             const currentItem = this.employees.filter(el => el.isSelected)
-            this.$emit('set-selected-item', currentItem[0].id)
+            this.$emit('set-selected-item-id', currentItem.length > 0 ? currentItem[0].id : 0)
         },
         clearInput() {
             this.employees.forEach(el => {
