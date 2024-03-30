@@ -28,7 +28,7 @@ export default {
     tg.MainButton.onClick(this.send)
 
     tg.expand()
-    this.chatId = tg.initDataUnsafe?.user?.id
+    this.chatId = tg.initDataUnsafe?.chat?.id
   },
   methods: {
     changeTgButtonState(state) {
