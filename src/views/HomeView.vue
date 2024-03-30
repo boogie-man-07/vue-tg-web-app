@@ -24,7 +24,8 @@ export default {
     this.chatData = tg.initDataUnsafe
 
     tg.MainButton.setParams({
-        text: 'Получить карточку'
+        text: 'Получить карточку',
+        color: '#0D488C'
     })
     tg.MainButton.onClick(this.send)
 
