@@ -43,8 +43,8 @@ export default {
       this.selectedItemId = id
     },
     send() {
-      SendService.sendCard(this.chatData, this.selectedItemId)
       const tg = window.Telegram.WebApp
+      SendService.sendCard(tg, this.selectedItemId)
       tg.close()
     },
   },
