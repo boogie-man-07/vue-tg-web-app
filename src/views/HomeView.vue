@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      chatId: 0,
+      chatData: {},
       selectedItemId: 0
     }
   },
@@ -28,7 +28,7 @@ export default {
     tg.MainButton.onClick(this.send)
 
     tg.expand()
-    this.chatId = tg.initDataUnsafe?.user.id
+    this.chatData = tg.initData
   },
   methods: {
     changeTgButtonState(state) {
@@ -43,7 +43,7 @@ export default {
       this.selectedItemId = id
     },
     send() {
-      SendService.sendCard(this.chatId, this.selectedItemId)
+      SendService.sendCard(this.chatData, this.selectedItemId)
       const tg = window.Telegram.WebApp
       tg.close()
     },
