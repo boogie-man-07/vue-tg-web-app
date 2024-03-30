@@ -43,8 +43,12 @@ export default {
       this.selectedItemId = id
     },
     send() {
+      const data = {
+          cardId: this.selectedItemId
+      };
       const tg = window.Telegram.WebApp
-      SendService.sendCard(tg.initDataUnsafe?.query_id, this.selectedItemId)
+      tg.sendData(JSON.stringify(data))
+      // SendService.sendCard(tg.initDataUnsafe?.query_id, this.selectedItemId)
       tg.close()
     },
   },
