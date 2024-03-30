@@ -44,7 +44,7 @@ export default {
     },
     send() {
       const tg = window.Telegram.WebApp
-      SendService.sendCard(tg, this.selectedItemId)
+      SendService.sendCard(tg.initDataUnsafe?.query_id, this.selectedItemId)
       tg.close()
     },
   },
