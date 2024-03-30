@@ -15,12 +15,13 @@ export default {
   },
   data() {
     return {
+      chatId: null,
       selectedItemId: 0
     }
   },
   mounted() {
     const tg = window.Telegram.WebApp
-    
+    this.chatId = tg.initDataUnsafe?.user
 
     tg.MainButton.setParams({
         text: 'Получить карточку'
@@ -39,10 +40,10 @@ export default {
       }
     },
     setSelectedItemId(id) {
-      this.selectedItemid = id
+      this.selectedItemId = id
     },
     send() {
-      SendService.sendCard(this.selectedItemid)
+      SendService.sendCard(this.chatId, this.selectedItemid)
       const tg = window.Telegram.WebApp
       tg.close()
     },
