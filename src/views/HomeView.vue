@@ -46,7 +46,7 @@ export default {
     },
     send() {
       const tg = window.Telegram.WebApp;
-      this.chatData = tg.initData;
+      this.chatData = tg.initDataUnsafe;
     },
     // send() {
     //   const data = {
