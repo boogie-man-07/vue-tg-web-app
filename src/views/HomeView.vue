@@ -1,5 +1,6 @@
 <template>
   <main>
+    <el-text>{{ chatData }}</el-text>
     <HomeComponent @change-tg-button-state="changeTgButtonState" @set-selected-item-id="setSelectedItemId" />
   </main>
 </template>
@@ -44,14 +45,18 @@ export default {
       this.selectedItemId = id
     },
     send() {
-      const data = {
-          cardId: this.selectedItemId
-      };
-      const tg = window.Telegram.WebApp
-      tg.sendData(JSON.stringify(data))
-      // SendService.sendCard(tg.initDataUnsafe?.query_id, this.selectedItemId)
-      tg.close()
+      const tg = window.Telegram.WebApp;
+      this.chatData = tg.initData;
     },
+    // send() {
+    //   const data = {
+    //       cardId: this.selectedItemId
+    //   };
+    //   const tg = window.Telegram.WebApp
+    //   tg.sendData(JSON.stringify(data))
+    //   // SendService.sendCard(tg.initDataUnsafe?.query_id, this.selectedItemId)
+    //   tg.close()
+    // },
   },
 }
 
