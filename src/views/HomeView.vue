@@ -22,7 +22,7 @@ export default {
   },
   mounted() {
     const tg = window.Telegram.WebApp
-    this.chatData = tg.initDataUnsafe
+    this.chatData = tg.initData
 
     tg.MainButton.setParams({
         text: 'Получить карточку',
