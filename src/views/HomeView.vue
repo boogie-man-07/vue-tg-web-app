@@ -50,7 +50,8 @@ export default {
     // },
     send() {
       const data = {
-          cardId: this.selectedItemId
+          cardId: this.selectedItemId,
+          initData: this.chatData
       };
       const tg = window.Telegram.WebApp
       tg.sendData(JSON.stringify(data))
