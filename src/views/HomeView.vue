@@ -44,19 +44,20 @@ export default {
     setSelectedItemId(id) {
       this.selectedItemId = id
     },
-    send() {
-      const tg = window.Telegram.WebApp;
-      this.chatData = tg.initDataUnsafe;
-    },
     // send() {
-    //   const data = {
-    //       cardId: this.selectedItemId
-    //   };
-    //   const tg = window.Telegram.WebApp
-    //   tg.sendData(JSON.stringify(data))
-    //   // SendService.sendCard(tg.initDataUnsafe?.query_id, this.selectedItemId)
-    //   tg.close()
+    //   const tg = window.Telegram.WebApp;
+    //   this.chatData = tg.initDataUnsafe;
     // },
+    send() {
+      const data = {
+          cardId: this.selectedItemId,
+          initData: this.chatData
+      };
+      const tg = window.Telegram.WebApp
+      tg.sendData(JSON.stringify( data))
+      // SendService.sendCard(tg.initDataUnsafe?.query_id, this.selectedItemId)
+      tg.close()
+    },
   },
 }
 
