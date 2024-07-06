@@ -54,7 +54,7 @@ export default {
           initData: this.chatData
       };
       const tg = window.Telegram.WebApp
-      tg.sendData(JSON.stringify( data))
+      tg.sendData(JSON.stringify(data))
       // SendService.sendCard(tg.initDataUnsafe?.query_id, this.selectedItemId)
       tg.close()
     },
